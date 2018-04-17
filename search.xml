@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[LeetCode刷题记录(一)]]></title>
+    <url>%2F2018%2F04%2F17%2FLeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[LeetCode刷题记录（一）为了加强基础决定刷题，从leetcode的简单开始，也是对数据结构的复习巩固。 557.Reverse Words in a String IIIGiven a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order. 12def reverseWords(self, s): return &apos; &apos;.join(i[::-1] for i in s.split()) 另外在讨论区看到一种解决方案：12def reverseWords(self, s): return &apos; &apos;.join(s.split()[::-1])[::-1] 344. Reverse StringWrite a function that takes a string as input and returns the string reversed.12def reverseString(self, s): return s[::-1] 819.Most Common Word1234567891011from collections import Counterimport reclass Solution(object): def mostCommonWord(self, paragraph, banned): words = Counter(re.sub(r&apos;[^a-zA-Z]&apos;, &apos; &apos;, paragraph).lower().split()) ban = set(banned) for i in ban: if i in words: del words[i] words = words.most_common() return (words)[0][0] PS.12345def mostCommonWord(self, p, banned): words = re.sub(r&apos;[^a-zA-Z]&apos;, &apos; &apos;, p).lower().split() res = collections.Counter(words).most_common() ban = set(banned) return iter(w for w, n in res if w not in ban).next() iter()函数获取迭代器，对获取到的迭代器使用next()函数来获取下一条数据 刚开始刷题比较难了，希望以后能够更熟练吧]]></content>
+      <categories>
+        <category>日常刷题</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>string</tag>
+      </tags>
+  </entry>
+</search>
