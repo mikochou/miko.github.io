@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode刷题记录(二)]]></title>
+    <url>%2F2018%2F04%2F20%2FLeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[LeetCode刷题记录（二）看书看到数组今天就刷下数组吧。今天上网页编程课学JS也是一言难尽…… 561.Array Partition IGiven an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.12def arrayPairSum(self, nums): return sum(sorted(nums)[::2]) list.sort()在python3里只有key和reverse两个参数了。 566.Reshape the MatrixYou’re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were.第一种用numpy的方法：1234567891011def matrixReshape(self, nums, r, c): &quot;&quot;&quot; :type nums: List[List[int]] :type r: int :type c: int :rtype: List[List[int]] &quot;&quot;&quot; try: return np.reshape(nums,(r,c)).tolist() except: return nums 第二种123456def matrixReshape(self, nums, r, c): flat = sum(nums, []) if len(flat) != r * c: return nums tuples = zip(*([iter(flat)] * c)) return map(list, tuples) 766.Toeplitz MatrixA matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element. Now given an M x N matrix, return True if and only if the matrix is Toeplitz.123456def isToeplitzMatrix(self, m): for i in range(len(m)-1): for j in range(len(m[0])-1): if m[i][j] != m[i+1][j+1]: return False return True 485.Max Consecutive Ones1234567891011def findMaxConsecutiveOnes(self, nums): maxc = 0 count = 0 for i in nums: if i == 1: count = count +1 else: maxc = max(maxc, count) count = 0 maxc = max(maxc, count) return maxc 这道题想过将list转str，但是感觉会很慢而且没有写出来 ( ´▽｀)想吃螺狮粉]]></content>
+      <categories>
+        <category>日常刷题</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode刷题记录(一)]]></title>
     <url>%2F2018%2F04%2F17%2FLeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
     <content type="text"><![CDATA[LeetCode刷题记录（一）为了加强基础决定刷题，从leetcode的简单开始，也是对数据结构的复习巩固。 557.Reverse Words in a String IIIGiven a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order. 12def reverseWords(self, s): return &apos; &apos;.join(i[::-1] for i in s.split()) 另外在讨论区看到一种解决方案：12def reverseWords(self, s): return &apos; &apos;.join(s.split()[::-1])[::-1] 344. Reverse StringWrite a function that takes a string as input and returns the string reversed.12def reverseString(self, s): return s[::-1] 819.Most Common Word1234567891011from collections import Counterimport reclass Solution(object): def mostCommonWord(self, paragraph, banned): words = Counter(re.sub(r&apos;[^a-zA-Z]&apos;, &apos; &apos;, paragraph).lower().split()) ban = set(banned) for i in ban: if i in words: del words[i] words = words.most_common() return (words)[0][0] PS.12345def mostCommonWord(self, p, banned): words = re.sub(r&apos;[^a-zA-Z]&apos;, &apos; &apos;, p).lower().split() res = collections.Counter(words).most_common() ban = set(banned) return iter(w for w, n in res if w not in ban).next() iter()函数获取迭代器，对获取到的迭代器使用next()函数来获取下一条数据 刚开始刷题比较难了，希望以后能够更熟练吧]]></content>
