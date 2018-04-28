@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode,linklist," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="LeetCode刷题记录（四）链表  237.Delete Node in a Linked ListWrite a function to delete a node (except the tail) in a singly linked list, given only access to that node.12345678class Solution(object):    def de">
+<meta name="keywords" content="leetcode,linklist">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题记录（四）">
+<meta property="og:url" content="http://mikochou.github.io/2018/04/28/LeetCode刷题记录（四）/index.html">
+<meta property="og:site_name" content="MIKO&#39;s NOTEBOOK">
+<meta property="og:description" content="LeetCode刷题记录（四）链表  237.Delete Node in a Linked ListWrite a function to delete a node (except the tail) in a singly linked list, given only access to that node.12345678class Solution(object):    def de">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-28T08:42:55.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode刷题记录（四）">
+<meta name="twitter:description" content="LeetCode刷题记录（四）链表  237.Delete Node in a Linked ListWrite a function to delete a node (except the tail) in a singly linked list, given only access to that node.12345678class Solution(object):    def de">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mikochou.github.io/2018/04/28/LeetCode刷题记录（四）/"/>
+
+
+
+
+
+  <title>LeetCode刷题记录（四） | MIKO's NOTEBOOK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MIKO's NOTEBOOK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mikochou.github.io/2018/04/28/LeetCode刷题记录（四）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miko_zyz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MIKO's NOTEBOOK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode刷题记录（四）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-28T00:00:00+08:00">
+                2018-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">日常刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="LeetCode刷题记录（四）"><a href="#LeetCode刷题记录（四）" class="headerlink" title="LeetCode刷题记录（四）"></a>LeetCode刷题记录（四）</h1><p>链表</p>
+<hr>
+<h3 id="237-Delete-Node-in-a-Linked-List"><a href="#237-Delete-Node-in-a-Linked-List" class="headerlink" title="237.Delete Node in a Linked List"></a>237.Delete Node in a Linked List</h3><p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def deleteNode(self, node):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type node: ListNode</span><br><span class="line">        :rtype: void Do not return anything, modify node in-place instead.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        node.val = node.next.val</span><br><span class="line">        node.next = node.next.next</span><br></pre></td></tr></table></figure></p>
+<h3 id="725-Split-Linked-List-in-Parts"><a href="#725-Split-Linked-List-in-Parts" class="headerlink" title="725.Split Linked List in Parts"></a>725.Split Linked List in Parts</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def splitListToParts(self, root, k):</span><br><span class="line">       &quot;&quot;&quot;</span><br><span class="line">       :type root: ListNode</span><br><span class="line">       :type k: int</span><br><span class="line">       :rtype: List[ListNode]</span><br><span class="line">       &quot;&quot;&quot;</span><br><span class="line">       curr, length = root, 0</span><br><span class="line">       while curr:</span><br><span class="line">           curr, length = curr.next, length + 1</span><br><span class="line">       chunk, longer = length//k, length%k</span><br><span class="line">       res = [chunk + 1]*longer + [chunk]*(k-longer)</span><br><span class="line">       </span><br><span class="line">       prev, curr = None, root</span><br><span class="line">       for index, num in enumerate(res):</span><br><span class="line">           if prev:</span><br><span class="line">               prev.next = None</span><br><span class="line">           res[index] = curr</span><br><span class="line">           for i in range(num):</span><br><span class="line">               prev, curr = curr, curr.next</span><br><span class="line">       return res</span><br></pre></td></tr></table></figure>
+<p>分三步：求长度，切块，把数据装进去</p>
+<h3 id="206-Reverse-Linked-List"><a href="#206-Reverse-Linked-List" class="headerlink" title="206.Reverse Linked List"></a>206.Reverse Linked List</h3><p>迭代<br>不太懂id……<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def reverseList(self, head):</span><br><span class="line">    prev = None</span><br><span class="line">    while head:</span><br><span class="line">        curr = head</span><br><span class="line">        head = head.next</span><br><span class="line">        curr.next = prev</span><br><span class="line">        prev = curr</span><br><span class="line">    return prev</span><br></pre></td></tr></table></figure></p>
+<p>递归<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def reverseList(self, head):</span><br><span class="line">    return self._reverse(head)</span><br><span class="line"></span><br><span class="line">def _reverse(self, node, prev=None):</span><br><span class="line">    if not node:</span><br><span class="line">        return prev</span><br><span class="line">    n = node.next</span><br><span class="line">    node.next = prev</span><br><span class="line">    return self._reverse(n, node)</span><br></pre></td></tr></table></figure></p>
+<h3 id="445-Add-Two-Numbers-II"><a href="#445-Add-Two-Numbers-II" class="headerlink" title="445.Add Two Numbers II"></a>445.Add Two Numbers II</h3><p>You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">def addTwoNumbers(self, l1, l2):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type l1: ListNode</span><br><span class="line">        :type l2: ListNode</span><br><span class="line">        :rtype: ListNode</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if not l1:</span><br><span class="line">            return l2</span><br><span class="line">        if not l2:</span><br><span class="line">            return l1</span><br><span class="line">        x1 = x2 = &apos;&apos;</span><br><span class="line">        while l1:</span><br><span class="line">            x1 += str(l1.val)</span><br><span class="line">            l1 = l1.next</span><br><span class="line">        while l2:</span><br><span class="line">            x2 += str(l2.val)</span><br><span class="line">            l2 = l2.next</span><br><span class="line">        y = int(x1)+int(x2)</span><br><span class="line">        y = str(y)</span><br><span class="line">        head = next_node = ListNode(y[0])</span><br><span class="line">        for i in range(1, len(y)):</span><br><span class="line">            next_node.next = ListNode(y[i])</span><br><span class="line">            next_node = next_node.next</span><br><span class="line">        return head</span><br></pre></td></tr></table></figure></p>
+<h3 id="328-Odd-Even-Linked-List"><a href="#328-Odd-Even-Linked-List" class="headerlink" title="328.Odd Even Linked List"></a>328.Odd Even Linked List</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def oddEvenList(self, head):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type head: ListNode</span><br><span class="line">        :rtype: ListNode</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        d1=odd=ListNode(0)</span><br><span class="line">        d2=even=ListNode(0)</span><br><span class="line">        i=1</span><br><span class="line">        while head:</span><br><span class="line">            if i%2:</span><br><span class="line">                odd.next,odd=head,head</span><br><span class="line">            else:</span><br><span class="line">                even.next,even=head,head</span><br><span class="line">            head=head.next</span><br><span class="line">            i+=1</span><br><span class="line">        odd.next,even.next=d2.next,None</span><br><span class="line">        return d1.next</span><br></pre></td></tr></table></figure>
+<hr>
+<p>放五一了啦啦啦</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/linklist/" rel="tag"># linklist</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/26/LeetCode刷题记录（三）/" rel="next" title="LeetCode刷题记录（三）">
+                <i class="fa fa-chevron-left"></i> LeetCode刷题记录（三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="miko_zyz" />
+            
+              <p class="site-author-name" itemprop="name">miko_zyz</p>
+              <p class="site-description motion-element" itemprop="description">some where some day you will know why you are doing this</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode刷题记录（四）"><span class="nav-number">1.</span> <span class="nav-text">LeetCode刷题记录（四）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#237-Delete-Node-in-a-Linked-List"><span class="nav-number">1.0.1.</span> <span class="nav-text">237.Delete Node in a Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#725-Split-Linked-List-in-Parts"><span class="nav-number">1.0.2.</span> <span class="nav-text">725.Split Linked List in Parts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#206-Reverse-Linked-List"><span class="nav-number">1.0.3.</span> <span class="nav-text">206.Reverse Linked List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#445-Add-Two-Numbers-II"><span class="nav-number">1.0.4.</span> <span class="nav-text">445.Add Two Numbers II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#328-Odd-Even-Linked-List"><span class="nav-number">1.0.5.</span> <span class="nav-text">328.Odd Even Linked List</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">miko_zyz</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
