@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode,tree," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="LeetCode刷题记录（六）应该是上周刷的题一直忘记发了  763. Partition Labels1234567891011121314class Solution(object):    def partitionLabels(self, S):        “””        :type S: str        :rtype: List[int]        “””">
+<meta name="keywords" content="leetcode,tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题记录（六）">
+<meta property="og:url" content="http://mikochou.github.io/2018/05/16/LeetCode刷题记录（六）/index.html">
+<meta property="og:site_name" content="MIKO&#39;s NOTEBOOK">
+<meta property="og:description" content="LeetCode刷题记录（六）应该是上周刷的题一直忘记发了  763. Partition Labels1234567891011121314class Solution(object):    def partitionLabels(self, S):        “””        :type S: str        :rtype: List[int]        “””">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-16T01:58:31.038Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode刷题记录（六）">
+<meta name="twitter:description" content="LeetCode刷题记录（六）应该是上周刷的题一直忘记发了  763. Partition Labels1234567891011121314class Solution(object):    def partitionLabels(self, S):        “””        :type S: str        :rtype: List[int]        “””">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mikochou.github.io/2018/05/16/LeetCode刷题记录（六）/"/>
+
+
+
+
+
+  <title>LeetCode刷题记录（六） | MIKO's NOTEBOOK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MIKO's NOTEBOOK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mikochou.github.io/2018/05/16/LeetCode刷题记录（六）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miko_zyz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MIKO's NOTEBOOK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode刷题记录（六）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T00:00:00+08:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">日常刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="LeetCode刷题记录（六）"><a href="#LeetCode刷题记录（六）" class="headerlink" title="LeetCode刷题记录（六）"></a>LeetCode刷题记录（六）</h1><p>应该是上周刷的题一直忘记发了</p>
+<hr>
+<h3 id="763-Partition-Labels"><a href="#763-Partition-Labels" class="headerlink" title="763. Partition Labels"></a>763. Partition Labels</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def partitionLabels(self, S):</span><br><span class="line">        “””</span><br><span class="line">        :type S: str</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        “””</span><br><span class="line">        size = []</span><br><span class="line">        while S:</span><br><span class="line">            I = 1</span><br><span class="line">            while set(S[I:])&amp;set(S[:I]):</span><br><span class="line">                I+=1</span><br><span class="line">            size.append(i)</span><br><span class="line">            S=S[I:]</span><br><span class="line">        return size</span><br></pre></td></tr></table></figure>
+<h3 id="806-Number-of-Lines-To-Write-String"><a href="#806-Number-of-Lines-To-Write-String" class="headerlink" title="806. Number of Lines To Write String"></a>806. Number of Lines To Write String</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def numberOfLines(self, widths, S):</span><br><span class="line">        “””</span><br><span class="line">        :type widths: List[int]</span><br><span class="line">        :type S: str</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        “””</span><br><span class="line">        res, cur = 1, 0</span><br><span class="line">        for I in S:</span><br><span class="line">            width = widths[ord(i) - ord(‘a’)]</span><br><span class="line">            res += 1 if cur + width &gt; 100 else 0</span><br><span class="line">            cur = width if cur +width &gt; 100 else cur + width</span><br><span class="line">        return [res, cur]</span><br></pre></td></tr></table></figure>
+<h3 id="537-Complex-Number-Multiplication"><a href="#537-Complex-Number-Multiplication" class="headerlink" title="537. Complex Number Multiplication"></a>537. Complex Number Multiplication</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def complexNumberMultiply(self, a, b):</span><br><span class="line">        “””</span><br><span class="line">        :type a: str</span><br><span class="line">        :type b: str</span><br><span class="line">        :rtype: str</span><br><span class="line">        “””</span><br><span class="line">        a, ai, b, bi = map(int, re.findall(‘-?\d+’, a+b))</span><br><span class="line">        return ‘%d+%di’ % (a*b - ai*bi, a*bi + ai*b)</span><br></pre></td></tr></table></figure>
+<h3 id="419-Battleships-in-a-Board"><a href="#419-Battleships-in-a-Board" class="headerlink" title="419. Battleships in a Board"></a>419. Battleships in a Board</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def countBattleships(self, board):</span><br><span class="line">        “””</span><br><span class="line">        :type board: List[List[str]]</span><br><span class="line">        :rtype: int</span><br><span class="line">        “””</span><br><span class="line">        total = 0</span><br><span class="line">        for I in range(len(board)):</span><br><span class="line">            for j in range(len(board[0])):</span><br><span class="line">                if board[I][j] == ‘X’:</span><br><span class="line">                    flag = 1</span><br><span class="line">                    if j&gt;0 and board[I][j-1] == ‘X’:</span><br><span class="line">                        flag = 0</span><br><span class="line">                    if I&gt;0 and board[i-1][j] == ‘X’:</span><br><span class="line">                        flag = 0</span><br><span class="line">                    total += flag</span><br><span class="line">        return total</span><br></pre></td></tr></table></figure>
+<h3 id="821-Shortest-Distance-to-a-Character"><a href="#821-Shortest-Distance-to-a-Character" class="headerlink" title="821. Shortest Distance to a Character"></a>821. Shortest Distance to a Character</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">### def shortestToChar(self, S, C):</span><br><span class="line">###         “””</span><br><span class="line">###         :type S: str</span><br><span class="line">###         :type C: str</span><br><span class="line">###         :rtype: List[int]</span><br><span class="line">###         “””</span><br><span class="line">###         return [min(abs(I - j) for j, e in enumerate(S) if e == C) for I in range(len(S))]</span><br></pre></td></tr></table></figure>
+<h3 id="530-Minimum-Absolute-Difference-in-BST"><a href="#530-Minimum-Absolute-Difference-in-BST" class="headerlink" title="530.Minimum Absolute Difference in BST"></a>530.Minimum Absolute Difference in BST</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def getMinimumDifference(self, root):</span><br><span class="line">        “””</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :rtype: int</span><br><span class="line">        “””</span><br><span class="line">        def dsf(node, l = []):</span><br><span class="line">            if node.left: dsf(node.left, l)</span><br><span class="line">            l.append(node.val)</span><br><span class="line">            if node.right: dsf(node.right, l)</span><br><span class="line">            return l</span><br><span class="line">        </span><br><span class="line">        l = [1,2,3,4,5]</span><br><span class="line">        return zip(l,l[1:])</span><br></pre></td></tr></table></figure>
+<h3 id="669-Trim-a-Binary-Search-Tree"><a href="#669-Trim-a-Binary-Search-Tree" class="headerlink" title="669. Trim a Binary Search Tree"></a>669. Trim a Binary Search Tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    def trimBST(self, root, L, R):</span><br><span class="line">        “””</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :type L: int</span><br><span class="line">        :type R: int</span><br><span class="line">        :rtype: TreeNode</span><br><span class="line">        “””</span><br><span class="line">        if not root:</span><br><span class="line">            return None</span><br><span class="line">        if L &gt; root.val:</span><br><span class="line">            return self.trimBST(root.right, L, R)</span><br><span class="line">        elif R &lt; root.val:</span><br><span class="line">            return self.trimBST(root.left, L, R)</span><br><span class="line">        root.left = self.trimBST(root.left, L, R)</span><br><span class="line">        root.right = self.trimBST(root.right, L, R)</span><br><span class="line">        return root</span><br></pre></td></tr></table></figure>
+<h3 id="513-Find-Bottom-Left-Tree-Value"><a href="#513-Find-Bottom-Left-Tree-Value" class="headerlink" title="513. Find Bottom Left Tree Value"></a>513. Find Bottom Left Tree Value</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def findBottomLeftValue(self, root):</span><br><span class="line">        “””</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :rtype: int</span><br><span class="line">        “””</span><br><span class="line">        q = [root]</span><br><span class="line">        for node in q:</span><br><span class="line">            q+=filter(None, (node.right, node.left))</span><br><span class="line">        return q</span><br></pre></td></tr></table></figure>
+<h3 id="637-Average-of-Levels-in-Binary-Tree"><a href="#637-Average-of-Levels-in-Binary-Tree" class="headerlink" title="637. Average of Levels in Binary Tree"></a>637. Average of Levels in Binary Tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def dfs(node, depth = 0):</span><br><span class="line">            if node:</span><br><span class="line">                if len(info) &lt;= depth:</span><br><span class="line">                    info.append([0,0])</span><br><span class="line">                info[depth][0] += node.val</span><br><span class="line">                info[depth][1] += 1</span><br><span class="line">                dfs(node.left, depth + 1)</span><br><span class="line">                dfs(node.right, depth + 1)</span><br><span class="line">        dfs(root)</span><br><span class="line">        return [s/float(c) for s,c in info]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/tree/" rel="tag"># tree</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/03/LeetCode刷题记录（五）/" rel="next" title="LeetCode刷题记录（五）">
+                <i class="fa fa-chevron-left"></i> LeetCode刷题记录（五）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="miko_zyz" />
+            
+              <p class="site-author-name" itemprop="name">miko_zyz</p>
+              <p class="site-description motion-element" itemprop="description">some where some day you will know why you are doing this</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#LeetCode刷题记录（六）"><span class="nav-number">1.</span> <span class="nav-text">LeetCode刷题记录（六）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#763-Partition-Labels"><span class="nav-number">1.0.1.</span> <span class="nav-text">763. Partition Labels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#806-Number-of-Lines-To-Write-String"><span class="nav-number">1.0.2.</span> <span class="nav-text">806. Number of Lines To Write String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#537-Complex-Number-Multiplication"><span class="nav-number">1.0.3.</span> <span class="nav-text">537. Complex Number Multiplication</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#419-Battleships-in-a-Board"><span class="nav-number">1.0.4.</span> <span class="nav-text">419. Battleships in a Board</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#821-Shortest-Distance-to-a-Character"><span class="nav-number">1.0.5.</span> <span class="nav-text">821. Shortest Distance to a Character</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#530-Minimum-Absolute-Difference-in-BST"><span class="nav-number">1.0.6.</span> <span class="nav-text">530.Minimum Absolute Difference in BST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#669-Trim-a-Binary-Search-Tree"><span class="nav-number">1.0.7.</span> <span class="nav-text">669. Trim a Binary Search Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#513-Find-Bottom-Left-Tree-Value"><span class="nav-number">1.0.8.</span> <span class="nav-text">513. Find Bottom Left Tree Value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#637-Average-of-Levels-in-Binary-Tree"><span class="nav-number">1.0.9.</span> <span class="nav-text">637. Average of Levels in Binary Tree</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">miko_zyz</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
