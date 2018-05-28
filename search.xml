@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[神经网络学习note2]]></title>
+    <url>%2F2018%2F05%2F28%2F%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0note2%2F</url>
+    <content type="text"><![CDATA[神经网络学习note2note1和动态规划都被我吃掉了 一些基础知识对一般的监督式学习，使用标准的神经网络模型对图像识别处理问题，使用卷积神经网络（CNN）对类似语音的序列信号，使用循环神经网络（RNN） Structured Data: 有实际意义的数据Unstructured Data：比较抽象的数据 二分类逻辑回归（Logisitic Regression）一般用来解决二分类（Binary Classification）问题逻辑回归的预测输出可以写成：sigmoid函数的意义在于将逻辑回归的输出限定在[0,1]间 损失函数（cost function）：选择的损失函数一般应该是convex的梯度下降：使用梯度下降来计算出合适的w，b值，最小化损失函数 Python机制向量化（Vectorization） 在python中使用向量化要比使用循环计算速度快对于所有m个样本，dZ、db、dw可表示为：Z = np.dot(w.T,X) +bA = sigmoid(Z)dZ = A - Ydw = 1/mnp.dot(X,dZ.T)db = 1/mnp.sum(dZ) w = w - alphadwb = b - alphadb python中的广播机制： 让所有输入数组都向其中shape最长的数组看齐，shape中不足的部分都通过在前面加1补齐 输出数组的shape是输入数组shape的各个轴上的最大值 如果输入数组的某个轴和输出数组的对应轴的长度相同或者其长度为1时，这个数组能够用来计算，否则出错 当输入数组的某个轴的长度为1时，沿着此轴运算时都用此轴上的第一组值 神经网络的正向传播：输入层到隐藏层，一次逻辑回归运算隐藏层到输出层，一次逻辑回归运算 行表示神经元个数，列表示样本数目m 激活函数（activation function）对于隐藏层，使用tanh函数较好，隐藏层的输出被限定在[-1,1]间，在0值附近分布，均值为0，这样从隐藏层到输出层，数据起到了归一化的效果。当|z|很大时，sigmoid和tanh函数的斜率都很小，梯度下降算法的速度会变慢，所以出现了ReLu函数。 反向传播：w[1]和w[2]都不能初始化为零，若初始化为零迭代更新会得到同样的结果 深层神经网络就是包含更多隐藏层的神经网络对于第l层，正向传播过程可以表示为：维度分别为：]]></content>
+      <categories>
+        <category>ng课程笔记</category>
+      </categories>
+      <tags>
+        <tag>NN</tag>
+        <tag>deeplearning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode刷题记录（七）]]></title>
     <url>%2F2018%2F05%2F16%2FLeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%83%EF%BC%89%2F</url>
     <content type="text"><![CDATA[LeetCode刷题记录（七）明天重点看看动态规划问题 543. Diameter of Binary Tree123456789101112131415def diameterOfBinaryTree(self, root): “”” :type root: TreeNode :rtype: int “”” self.ans = 0 def depth(node): if not node: return 0 anL, anR = depth(node.right), depth(node.left) self.ans = max(self.ans, anL+anR) return 1+max(anL, anR) depth(root) return self.ans 540. Single Element in a Sorted Array12345678910111213def singleNonDuplicate(self, nums): “”” :type nums: List[int] :rtype: int “”” left, right = 0, len(nums)-1 while left &lt; right: mid = (left + right)/2 if nums[mid] == nums[mid+1]: right = mid + 1 else: left = mid return nums[left] 然鹅超时了……不过先这样写着吧 198. House Robber12345678910 def rob(self, nums): “”” :type nums: List[int] :rtype: int “”” i, j = 0, 0 for m in nums: k, i = i, m + j j = max(k, j) return max(i, j) f(0) = nums[0]f(1) = max(num[0], num[1])f(k) = max( f(k-2) + nums[k], f(k-1) ) 104. Maximum Depth of Binary Tree12345678def maxDepth(self, root): “”” :type root: TreeNode :rtype: int “”” if not root: return 0 return 1+max(self.maxDepth(root.left), self.maxDepth(root.right))]]></content>
