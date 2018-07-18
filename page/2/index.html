@@ -325,19 +325,17 @@
       
         
           
-            <h1 id="LeetCode刷题记录（一）"><a href="#LeetCode刷题记录（一）" class="headerlink" title="LeetCode刷题记录（一）"></a>LeetCode刷题记录（一）</h1><pre><code>为了加强基础决定刷题，从leetcode的简单开始，也是对数据结构的复习巩固。
-</code></pre><hr>
-<h3 id="557-Reverse-Words-in-a-String-III"><a href="#557-Reverse-Words-in-a-String-III" class="headerlink" title="557.Reverse Words in a String III"></a>557.Reverse Words in a String III</h3><p>Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def reverseWords(self, s):</span><br><span class="line">    return &apos; &apos;.join(i[::-1] for i in s.split())</span><br></pre></td></tr></table></figure>
-<p>另外在讨论区看到一种解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def reverseWords(self, s):</span><br><span class="line">    return &apos; &apos;.join(s.split()[::-1])[::-1]</span><br></pre></td></tr></table></figure></p>
-<h3 id="344-Reverse-String"><a href="#344-Reverse-String" class="headerlink" title="344. Reverse String"></a>344. Reverse String</h3><p>Write a function that takes a string as input and returns the string reversed.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def reverseString(self, s):</span><br><span class="line">    return s[::-1]</span><br></pre></td></tr></table></figure></p>
-<h3 id="819-Most-Common-Word"><a href="#819-Most-Common-Word" class="headerlink" title="819.Most Common Word"></a>819.Most Common Word</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">import re</span><br><span class="line">class Solution(object):</span><br><span class="line">    def mostCommonWord(self, paragraph, banned):</span><br><span class="line">        words = Counter(re.sub(r&apos;[^a-zA-Z]&apos;, &apos; &apos;, paragraph).lower().split())</span><br><span class="line">        ban = set(banned)</span><br><span class="line">        for i in ban:</span><br><span class="line">            if i in words:</span><br><span class="line">                del words[i]</span><br><span class="line">        words = words.most_common()</span><br><span class="line">        return (words)[0][0]</span><br></pre></td></tr></table></figure>
-<p>PS.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def mostCommonWord(self, p, banned):</span><br><span class="line">        words = re.sub(r&apos;[^a-zA-Z]&apos;, &apos; &apos;, p).lower().split()</span><br><span class="line">        res = collections.Counter(words).most_common()</span><br><span class="line">        ban = set(banned)</span><br><span class="line">        return iter(w for w, n in res if w not in ban).next()</span><br></pre></td></tr></table></figure></p>
-<p>iter()函数获取迭代器，对获取到的迭代器使用next()函数来获取下一条数据</p>
-<hr>
-<p>刚开始刷题比较难了，希望以后能够更熟练吧</p>
+          LeetCode刷题记录（一）为了加强基础决定刷题，从leetcode的简单开始，也是对数据结构的复习巩固。
 
-          
+557.Reverse Words in a String IIIGiven a string, you need to reverse the order of characters i
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/17/LeetCode刷题记录（一）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

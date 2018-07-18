@@ -35,6 +35,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[LeetCode刷题记录（七）]]></title>
+    <url>%2F2018%2F05%2F16%2FLeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%83%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[LeetCode刷题记录（七）明天重点看看动态规划问题 543. Diameter of Binary Tree123456789101112131415def diameterOfBinaryTree(self, root): “”” :type root: TreeNode :rtype: int “”” self.ans = 0 def depth(node): if not node: return 0 anL, anR = depth(node.right), depth(node.left) self.ans = max(self.ans, anL+anR) return 1+max(anL, anR) depth(root) return self.ans 540. Single Element in a Sorted Array12345678910111213def singleNonDuplicate(self, nums): “”” :type nums: List[int] :rtype: int “”” left, right = 0, len(nums)-1 while left &lt; right: mid = (left + right)/2 if nums[mid] == nums[mid+1]: right = mid + 1 else: left = mid return nums[left] 然鹅超时了……不过先这样写着吧 198. House Robber12345678910 def rob(self, nums): “”” :type nums: List[int] :rtype: int “”” i, j = 0, 0 for m in nums: k, i = i, m + j j = max(k, j) return max(i, j) f(0) = nums[0]f(1) = max(num[0], num[1])f(k) = max( f(k-2) + nums[k], f(k-1) ) 104. Maximum Depth of Binary Tree12345678def maxDepth(self, root): “”” :type root: TreeNode :rtype: int “”” if not root: return 0 return 1+max(self.maxDepth(root.left), self.maxDepth(root.right))]]></content>
+      <categories>
+        <category>日常刷题</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode刷题记录（六）]]></title>
     <url>%2F2018%2F05%2F16%2FLeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E5%85%AD%EF%BC%89%2F</url>
     <content type="text"><![CDATA[LeetCode刷题记录（六）应该是上周刷的题一直忘记发了 763. Partition Labels1234567891011121314class Solution(object): def partitionLabels(self, S): “”” :type S: str :rtype: List[int] “”” size = [] while S: I = 1 while set(S[I:])&amp;set(S[:I]): I+=1 size.append(i) S=S[I:] return size 806. Number of Lines To Write String123456789101112def numberOfLines(self, widths, S): “”” :type widths: List[int] :type S: str :rtype: List[int] “”” res, cur = 1, 0 for I in S: width = widths[ord(i) - ord(‘a’)] res += 1 if cur + width &gt; 100 else 0 cur = width if cur +width &gt; 100 else cur + width return [res, cur] 537. Complex Number Multiplication12345678def complexNumberMultiply(self, a, b): “”” :type a: str :type b: str :rtype: str “”” a, ai, b, bi = map(int, re.findall(‘-?\d+’, a+b)) return ‘%d+%di’ % (a*b - ai*bi, a*bi + ai*b) 419. Battleships in a Board12345678910111213141516def countBattleships(self, board): “”” :type board: List[List[str]] :rtype: int “”” total = 0 for I in range(len(board)): for j in range(len(board[0])): if board[I][j] == ‘X’: flag = 1 if j&gt;0 and board[I][j-1] == ‘X’: flag = 0 if I&gt;0 and board[i-1][j] == ‘X’: flag = 0 total += flag return total 821. Shortest Distance to a Character1234567### def shortestToChar(self, S, C):### “””### :type S: str### :type C: str### :rtype: List[int]### “””### return [min(abs(I - j) for j, e in enumerate(S) if e == C) for I in range(len(S))] 530.Minimum Absolute Difference in BST12345678910111213def getMinimumDifference(self, root): “”” :type root: TreeNode :rtype: int “”” def dsf(node, l = []): if node.left: dsf(node.left, l) l.append(node.val) if node.right: dsf(node.right, l) return l l = [1,2,3,4,5] return zip(l,l[1:]) 669. Trim a Binary Search Tree12345678910111213141516 def trimBST(self, root, L, R): “”” :type root: TreeNode :type L: int :type R: int :rtype: TreeNode “”” if not root: return None if L &gt; root.val: return self.trimBST(root.right, L, R) elif R &lt; root.val: return self.trimBST(root.left, L, R) root.left = self.trimBST(root.left, L, R) root.right = self.trimBST(root.right, L, R) return root 513. Find Bottom Left Tree Value123456789def findBottomLeftValue(self, root): “”” :type root: TreeNode :rtype: int “”” q = [root] for node in q: q+=filter(None, (node.right, node.left)) return q 637. Average of Levels in Binary Tree12345678910def dfs(node, depth = 0): if node: if len(info) &lt;= depth: info.append([0,0]) info[depth][0] += node.val info[depth][1] += 1 dfs(node.left, depth + 1) dfs(node.right, depth + 1) dfs(root) return [s/float(c) for s,c in info]]]></content>
@@ -44,17 +55,6 @@
       <tags>
         <tag>leetcode</tag>
         <tag>tree</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCode刷题记录（七）]]></title>
-    <url>%2F2018%2F05%2F16%2FLeetCode%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%83%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[LeetCode刷题记录（七）明天重点看看动态规划问题 543. Diameter of Binary Tree123456789101112131415def diameterOfBinaryTree(self, root): “”” :type root: TreeNode :rtype: int “”” self.ans = 0 def depth(node): if not node: return 0 anL, anR = depth(node.right), depth(node.left) self.ans = max(self.ans, anL+anR) return 1+max(anL, anR) depth(root) return self.ans 540. Single Element in a Sorted Array12345678910111213def singleNonDuplicate(self, nums): “”” :type nums: List[int] :rtype: int “”” left, right = 0, len(nums)-1 while left &lt; right: mid = (left + right)/2 if nums[mid] == nums[mid+1]: right = mid + 1 else: left = mid return nums[left] 然鹅超时了……不过先这样写着吧 198. House Robber12345678910 def rob(self, nums): “”” :type nums: List[int] :rtype: int “”” i, j = 0, 0 for m in nums: k, i = i, m + j j = max(k, j) return max(i, j) f(0) = nums[0]f(1) = max(num[0], num[1])f(k) = max( f(k-2) + nums[k], f(k-1) ) 104. Maximum Depth of Binary Tree12345678def maxDepth(self, root): “”” :type root: TreeNode :rtype: int “”” if not root: return 0 return 1+max(self.maxDepth(root.left), self.maxDepth(root.right))]]></content>
-      <categories>
-        <category>日常刷题</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
