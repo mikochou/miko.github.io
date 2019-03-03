@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="leetcode刷题记录(十二)菜  33.Search in Rotated Sorted Array用二分查找1234567891011121314151617181920212223242526def search(self, nums, target):        &amp;quot;&amp;quot;&amp;quot;        :type nums: List[int]        :type">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题记录（十二）">
+<meta property="og:url" content="http://mikochou.github.io/2019/03/03/leetcode刷题记录(十二)/index.html">
+<meta property="og:site_name" content="MIKO&#39;s NOTEBOOK">
+<meta property="og:description" content="leetcode刷题记录(十二)菜  33.Search in Rotated Sorted Array用二分查找1234567891011121314151617181920212223242526def search(self, nums, target):        &amp;quot;&amp;quot;&amp;quot;        :type nums: List[int]        :type">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-03T05:54:51.375Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode刷题记录（十二）">
+<meta name="twitter:description" content="leetcode刷题记录(十二)菜  33.Search in Rotated Sorted Array用二分查找1234567891011121314151617181920212223242526def search(self, nums, target):        &amp;quot;&amp;quot;&amp;quot;        :type nums: List[int]        :type">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mikochou.github.io/2019/03/03/leetcode刷题记录(十二)/"/>
+
+
+
+
+
+  <title>LeetCode刷题记录（十二） | MIKO's NOTEBOOK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MIKO's NOTEBOOK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mikochou.github.io/2019/03/03/leetcode刷题记录(十二)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miko_zyz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MIKO's NOTEBOOK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode刷题记录（十二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-03T00:00:00+08:00">
+                2019-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">日常刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="leetcode刷题记录-十二"><a href="#leetcode刷题记录-十二" class="headerlink" title="leetcode刷题记录(十二)"></a>leetcode刷题记录(十二)</h1><p>菜</p>
+<hr>
+<h3 id="33-Search-in-Rotated-Sorted-Array"><a href="#33-Search-in-Rotated-Sorted-Array" class="headerlink" title="33.Search in Rotated Sorted Array"></a>33.Search in Rotated Sorted Array</h3><p>用二分查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">def search(self, nums, target):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :type target: int</span><br><span class="line">        :rtype: int</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if not nums:</span><br><span class="line">            return -1</span><br><span class="line">        low, high = 0, len(nums)-1</span><br><span class="line">        </span><br><span class="line">        while low &lt;= high:</span><br><span class="line">            mid = (low+high)&gt;&gt;1</span><br><span class="line">            if target== nums[mid]:</span><br><span class="line">                return mid</span><br><span class="line">            if nums[low] &lt;= nums[mid]:</span><br><span class="line">                if nums[low] &lt;= target &lt;= nums[mid]:</span><br><span class="line">                    high = mid - 1</span><br><span class="line">                else:</span><br><span class="line">                    low = mid + 1</span><br><span class="line">            else:</span><br><span class="line">                if nums[mid] &lt;= target &lt;= nums[high]:</span><br><span class="line">                    low = mid + 1</span><br><span class="line">                else:</span><br><span class="line">                    high = mid - 1</span><br><span class="line">        </span><br><span class="line">        return -1</span><br></pre></td></tr></table></figure></p>
+<h3 id="35-Search-Insert-Position"><a href="#35-Search-Insert-Position" class="headerlink" title="35.Search Insert Position"></a>35.Search Insert Position</h3><p>因为是sorted所以用二分查找<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution(object):</span><br><span class="line">    def searchInsert(self, nums, target):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type nums: List[int]</span><br><span class="line">        :type target: int</span><br><span class="line">        :rtype: int</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        low = 0</span><br><span class="line">        high = len(nums) - 1</span><br><span class="line">        while low&lt;=high:</span><br><span class="line">            mid = (low+high)//2</span><br><span class="line">            if nums[mid] == target:</span><br><span class="line">                return mid</span><br><span class="line">            if nums[mid] &gt; target:</span><br><span class="line">                high = mid - 1</span><br><span class="line">            if nums[mid] &lt; target:</span><br><span class="line">                low = mid + 1</span><br><span class="line">        return ((high+low)//2 + 1)</span><br></pre></td></tr></table></figure></p>
+<p>其实刚开始想到的是一个很慢的方法-&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nums.append(target)</span><br><span class="line">nums.sort()</span><br><span class="line">return nums.index(target)</span><br></pre></td></tr></table></figure></p>
+<h3 id="39-Combination-Sum"><a href="#39-Combination-Sum" class="headerlink" title="39.Combination Sum"></a>39.Combination Sum</h3><p>dfs<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">res = []</span><br><span class="line">        def dfs(target, index, path):</span><br><span class="line">            if target &lt; 0:</span><br><span class="line">                return</span><br><span class="line">            if target == 0:</span><br><span class="line">                res.append(path)</span><br><span class="line">                return</span><br><span class="line">            for i in range(index,len(candidates)):</span><br><span class="line">                dfs(target-candidates[i],i,path+[candidates[i]])</span><br><span class="line">                </span><br><span class="line">        dfs(target,0,[])</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure></p>
+<h3 id="53-Maximum-Subarray"><a href="#53-Maximum-Subarray" class="headerlink" title="53.Maximum Subarray"></a>53.Maximum Subarray</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cur = maxs =  -float(&apos;inf&apos;)</span><br><span class="line">        for i in xrange(len(nums)):</span><br><span class="line">            cur +=nums[i]</span><br><span class="line">            cur = max(cur,nums[i])</span><br><span class="line">            maxs = max(maxs,cur)</span><br><span class="line">        return maxs</span><br></pre></td></tr></table></figure>
+<h3 id="538-Convert-BST-to-Greater-Tree"><a href="#538-Convert-BST-to-Greater-Tree" class="headerlink" title="538.Convert BST to Greater Tree"></a>538.Convert BST to Greater Tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a = 0</span><br><span class="line">    def convertBST(self, root):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :rtype: TreeNode</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if not root:</span><br><span class="line">            return None</span><br><span class="line">        self.convertBST(root.right)</span><br><span class="line">        self.a += root.val</span><br><span class="line">        root.val = self.a</span><br><span class="line">        self.convertBST(root.left)</span><br><span class="line">        return root</span><br></pre></td></tr></table></figure>
+<h3 id="860-Lemonade-Change"><a href="#860-Lemonade-Change" class="headerlink" title="860.Lemonade Change"></a>860.Lemonade Change</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">five, ten = 0, 0</span><br><span class="line">        for i in bills:</span><br><span class="line">            if i == 5:</span><br><span class="line">                five+=1</span><br><span class="line">            elif i == 10:</span><br><span class="line">                five -=1</span><br><span class="line">                ten +=1</span><br><span class="line">            else:</span><br><span class="line">                if ten &gt; 0:</span><br><span class="line">                    five -=1</span><br><span class="line">                    ten -=1</span><br><span class="line">                else:</span><br><span class="line">                    five -=3</span><br><span class="line">            if five &lt; 0:</span><br><span class="line">                return False</span><br><span class="line">        return True</span><br></pre></td></tr></table></figure>
+<h3 id="100-Same-Tree"><a href="#100-Same-Tree" class="headerlink" title="100.Same Tree"></a>100.Same Tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if p == None and q == None:</span><br><span class="line">            return True</span><br><span class="line">        if p and q:</span><br><span class="line">            return (p.val==q.val) and self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)</span><br><span class="line">        else:</span><br><span class="line">            return False</span><br></pre></td></tr></table></figure>
+<h3 id="594-Longest-Harmonious-Subsequence"><a href="#594-Longest-Harmonious-Subsequence" class="headerlink" title="594.Longest Harmonious Subsequence"></a>594.Longest Harmonious Subsequence</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def findLHS(self, nums):</span><br><span class="line">     &quot;&quot;&quot;</span><br><span class="line">     :type nums: List[int]</span><br><span class="line">     :rtype: int</span><br><span class="line">     &quot;&quot;&quot;</span><br><span class="line">     m = &#123;&#125;</span><br><span class="line">     for i in nums:</span><br><span class="line">         if i not in m:</span><br><span class="line">             m[i] = 1</span><br><span class="line">         else:</span><br><span class="line">             m[i] += 1</span><br><span class="line">     l = 0</span><br><span class="line">     for i in m:</span><br><span class="line">         if m.get(i+1):</span><br><span class="line">             l = max(l,m[i]+m[i+1])</span><br><span class="line">     return l</span><br></pre></td></tr></table></figure>
+<h3 id="671-Second-Minimum-Node-In-a-Binary-Tree"><a href="#671-Second-Minimum-Node-In-a-Binary-Tree" class="headerlink" title="671.Second Minimum Node In a Binary Tree"></a>671.Second Minimum Node In a Binary Tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def findSecondMinimumValue(self, root):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type root: TreeNode</span><br><span class="line">        :rtype: int</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.ans = float(&apos;inf&apos;)</span><br><span class="line">        minx = root.val</span><br><span class="line">        </span><br><span class="line">        def dfs(node):</span><br><span class="line">            if node:</span><br><span class="line">                if minx&lt;node.val&lt;self.ans:</span><br><span class="line">                    self.ans = node.val</span><br><span class="line">                elif node.val == minx:</span><br><span class="line">                    dfs(node.left)</span><br><span class="line">                    dfs(node.right)</span><br><span class="line">        dfs(root)</span><br><span class="line">        return self.ans if self.ans &lt; float(&apos;inf&apos;) else -1</span><br></pre></td></tr></table></figure>
+<h3 id="152-Maximum-Product-Subarray"><a href="#152-Maximum-Product-Subarray" class="headerlink" title="152.Maximum Product Subarray"></a>152.Maximum Product Subarray</h3><p>普通方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">max1 = big = small = nums[0]</span><br><span class="line">        for i in nums[1:]:</span><br><span class="line">            temp = big</span><br><span class="line">            big = max(i,i*big,i*small)</span><br><span class="line">            small = min(i,i*temp,i*small)</span><br><span class="line">            max1 = max(max1,big)</span><br><span class="line">        return max1</span><br></pre></td></tr></table></figure></p>
+<p>在讨论里看到的奇妙方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def maxProduct(self, A):</span><br><span class="line">       B = A[::-1]</span><br><span class="line">       for i in range(1, len(A)):</span><br><span class="line">           A[i] *= A[i - 1] or 1</span><br><span class="line">           B[i] *= B[i - 1] or 1</span><br><span class="line">       return max(A + B)</span><br></pre></td></tr></table></figure></p>
+<h3 id="942-DI-String-Match"><a href="#942-DI-String-Match" class="headerlink" title="942.DI String Match"></a>942.DI String Match</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">def diStringMatch(self, S):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        :type S: str</span><br><span class="line">        :rtype: List[int]</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        i = 0</span><br><span class="line">        j = len(S)</span><br><span class="line">        res = []</span><br><span class="line">        </span><br><span class="line">        for x in S:</span><br><span class="line">            if x==&apos;I&apos;:</span><br><span class="line">                res.append(i)</span><br><span class="line">                i+=1</span><br><span class="line">            else:</span><br><span class="line">                res.append(j)</span><br><span class="line">                j-=1</span><br><span class="line">        res.append(j if S[-1]==&apos;D&apos; else i)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/03/LeetCode刷题记录(十)/" rel="next" title="LeetCode刷题记录（十）">
+                <i class="fa fa-chevron-left"></i> LeetCode刷题记录（十）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="miko_zyz" />
+            
+              <p class="site-author-name" itemprop="name">miko_zyz</p>
+              <p class="site-description motion-element" itemprop="description">some where some day you will know why you are doing this</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode刷题记录-十二"><span class="nav-number">1.</span> <span class="nav-text">leetcode刷题记录(十二)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#33-Search-in-Rotated-Sorted-Array"><span class="nav-number">1.0.1.</span> <span class="nav-text">33.Search in Rotated Sorted Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#35-Search-Insert-Position"><span class="nav-number">1.0.2.</span> <span class="nav-text">35.Search Insert Position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#39-Combination-Sum"><span class="nav-number">1.0.3.</span> <span class="nav-text">39.Combination Sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#53-Maximum-Subarray"><span class="nav-number">1.0.4.</span> <span class="nav-text">53.Maximum Subarray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#538-Convert-BST-to-Greater-Tree"><span class="nav-number">1.0.5.</span> <span class="nav-text">538.Convert BST to Greater Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#860-Lemonade-Change"><span class="nav-number">1.0.6.</span> <span class="nav-text">860.Lemonade Change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#100-Same-Tree"><span class="nav-number">1.0.7.</span> <span class="nav-text">100.Same Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#594-Longest-Harmonious-Subsequence"><span class="nav-number">1.0.8.</span> <span class="nav-text">594.Longest Harmonious Subsequence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#671-Second-Minimum-Node-In-a-Binary-Tree"><span class="nav-number">1.0.9.</span> <span class="nav-text">671.Second Minimum Node In a Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#152-Maximum-Product-Subarray"><span class="nav-number">1.0.10.</span> <span class="nav-text">152.Maximum Product Subarray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#942-DI-String-Match"><span class="nav-number">1.0.11.</span> <span class="nav-text">942.DI String Match</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">miko_zyz</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
