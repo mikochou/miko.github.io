@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="leetcode," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="希望拿到offer！leetcode刷题记录(十四)435.Non-overlapping Intervals1234567891011if not intervals: return 0       intervals.sort(key = lambda x: x.start)       intervals  = iter(intervals)       curEnd,cnt = next(">
+<meta name="keywords" content="leetcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题记录（十四）">
+<meta property="og:url" content="http://mikochou.github.io/2019/03/17/leetcode刷题记录(十四)/index.html">
+<meta property="og:site_name" content="MIKO&#39;s NOTEBOOK">
+<meta property="og:description" content="希望拿到offer！leetcode刷题记录(十四)435.Non-overlapping Intervals1234567891011if not intervals: return 0       intervals.sort(key = lambda x: x.start)       intervals  = iter(intervals)       curEnd,cnt = next(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-18T07:19:33.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode刷题记录（十四）">
+<meta name="twitter:description" content="希望拿到offer！leetcode刷题记录(十四)435.Non-overlapping Intervals1234567891011if not intervals: return 0       intervals.sort(key = lambda x: x.start)       intervals  = iter(intervals)       curEnd,cnt = next(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://mikochou.github.io/2019/03/17/leetcode刷题记录(十四)/"/>
+
+
+
+
+
+  <title>LeetCode刷题记录（十四） | MIKO's NOTEBOOK</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MIKO's NOTEBOOK</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mikochou.github.io/2019/03/17/leetcode刷题记录(十四)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="miko_zyz">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MIKO's NOTEBOOK">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode刷题记录（十四）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-17T00:00:00+08:00">
+                2019-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常刷题/" itemprop="url" rel="index">
+                    <span itemprop="name">日常刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="希望拿到offer！"><a href="#希望拿到offer！" class="headerlink" title="希望拿到offer！"></a>希望拿到offer！</h2><h1 id="leetcode刷题记录-十四"><a href="#leetcode刷题记录-十四" class="headerlink" title="leetcode刷题记录(十四)"></a>leetcode刷题记录(十四)</h1><h3 id="435-Non-overlapping-Intervals"><a href="#435-Non-overlapping-Intervals" class="headerlink" title="435.Non-overlapping Intervals"></a>435.Non-overlapping Intervals</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if not intervals: return 0</span><br><span class="line">       intervals.sort(key = lambda x: x.start)</span><br><span class="line">       intervals  = iter(intervals)</span><br><span class="line">       curEnd,cnt = next(intervals).end,0</span><br><span class="line">       for x in intervals:</span><br><span class="line">           if x.start &lt; curEnd:</span><br><span class="line">               cnt+=1</span><br><span class="line">               curEnd = min(curEnd,x.end)</span><br><span class="line">           else:</span><br><span class="line">               curEnd = x.end</span><br><span class="line">       return cnt</span><br></pre></td></tr></table></figure>
+<h3 id="443-String-Compression"><a href="#443-String-Compression" class="headerlink" title="443.String Compression"></a>443.String Compression</h3><p>两个指针<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">left = i = 0</span><br><span class="line">        while i&lt;len(chars):</span><br><span class="line">            char,length = chars[i],1</span><br><span class="line">            while (i+1) &lt; len(chars) and char == chars[i+1]:</span><br><span class="line">                length, i = length+1, i+1</span><br><span class="line">            chars[left] = char</span><br><span class="line">            if length &gt; 1:</span><br><span class="line">                len_str = str(length)</span><br><span class="line">                chars[left+1:left+1+len(len_str)] = len_str</span><br><span class="line">                left += len(len_str)</span><br><span class="line">            left,i = left+1,i+1</span><br></pre></td></tr></table></figure></p>
+<h3 id="662-Maximum-Width-of-Binary-Tree"><a href="#662-Maximum-Width-of-Binary-Tree" class="headerlink" title="662.Maximum Width of Binary Tree"></a>662.Maximum Width of Binary Tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">res = 0</span><br><span class="line">        level = [(root,0)]</span><br><span class="line">        while level:</span><br><span class="line">            new_level = []</span><br><span class="line">            res = max(res,level[-1][1]-level[0][1]+1)</span><br><span class="line">            for node,pos in level:</span><br><span class="line">                if node.left:</span><br><span class="line">                    new_level.append((node.left,pos*2))</span><br><span class="line">                if node.right:</span><br><span class="line">                    new_level.append((node.right,pos*2+1))</span><br><span class="line">            level = new_level</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
+<h3 id="455-Assign-Cookies"><a href="#455-Assign-Cookies" class="headerlink" title="455.Assign Cookies"></a>455.Assign Cookies</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i,j,g,s = 0,0,sorted(g),sorted(s)</span><br><span class="line">        while i &lt; len(g) and j &lt; len(s):</span><br><span class="line">            i+=g[i] &lt;= s[j]</span><br><span class="line">            j+=1</span><br><span class="line">        return i</span><br></pre></td></tr></table></figure>
+<h3 id="228-Summary-Ranges"><a href="#228-Summary-Ranges" class="headerlink" title="228.Summary Ranges"></a>228.Summary Ranges</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def printR(self,l,r):</span><br><span class="line">            if l == r:</span><br><span class="line">                return str(l)</span><br><span class="line">            else:</span><br><span class="line">                return str(l) +&quot;-&gt;&quot;+str(r)</span><br><span class="line">        </span><br><span class="line">        if not nums:</span><br><span class="line">            return []</span><br><span class="line">        res,i,start = [],0,0</span><br><span class="line">        while i&lt;len(nums)-1:</span><br><span class="line">            if nums[i] + 1 != nums[i+1]:</span><br><span class="line">                res.append(self.printR([start],nums[i]))</span><br><span class="line">                start = i+1</span><br><span class="line">            i += 1</span><br><span class="line">            res.append(self.printR(nums[start],nums[i]))</span><br><span class="line">            return res</span><br></pre></td></tr></table></figure>
+<h3 id="153-Find-Minimum-in-Rotated-Sorted-Array"><a href="#153-Find-Minimum-in-Rotated-Sorted-Array" class="headerlink" title="153.Find Minimum in Rotated Sorted Array"></a>153.Find Minimum in Rotated Sorted Array</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i=0</span><br><span class="line">       j=len(nums)-1</span><br><span class="line">       while i&lt;j:</span><br><span class="line">           m=i+(j-i)/2</span><br><span class="line">           if nums[m]&gt;nums[j]:</span><br><span class="line">               i=m+1</span><br><span class="line">           else:</span><br><span class="line">               j=m</span><br><span class="line">       return nums[i]</span><br></pre></td></tr></table></figure>
+<h3 id="606-Construct-String-from-Binary-Tree"><a href="#606-Construct-String-from-Binary-Tree" class="headerlink" title="606.Construct String from Binary Tree"></a>606.Construct String from Binary Tree</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if not t:</span><br><span class="line">            return &apos;&apos;</span><br><span class="line">        result = str(t.val)</span><br><span class="line">        if t.left:</span><br><span class="line">            result += &apos;(&apos;+self.tree2str(t.left) + &apos;)&apos;</span><br><span class="line">            if t.right:</span><br><span class="line">                result += &apos;(&apos;+self.tree2str(t.right) + &apos;)&apos;</span><br><span class="line">        elif t.right:</span><br><span class="line">            result += &apos;()&apos;+ &apos;(&apos;+self.tree2str(t.right) + &apos;)&apos;</span><br><span class="line">        return result</span><br></pre></td></tr></table></figure>
+<h3 id="611-Valid-Triangle-Number"><a href="#611-Valid-Triangle-Number" class="headerlink" title="611.Valid Triangle Number"></a>611.Valid Triangle Number</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ans = 0</span><br><span class="line">        nums.sort()</span><br><span class="line">        for i in range(2,len(nums)):</span><br><span class="line">            s =0</span><br><span class="line">            e = i - 1</span><br><span class="line">            while s &lt; e:</span><br><span class="line">                if nums[s] + nums[e] &gt; nums[i]:</span><br><span class="line">                    ans+= e-s</span><br><span class="line">                    e -= 1</span><br><span class="line">                else:</span><br><span class="line">                    s += 1</span><br><span class="line">        return ans</span><br></pre></td></tr></table></figure>
+<h3 id="74-Search-a-2D-Matrix"><a href="#74-Search-a-2D-Matrix" class="headerlink" title="74.Search a 2D Matrix"></a>74.Search a 2D Matrix</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">if not matrix or target is None:</span><br><span class="line">            return False</span><br><span class="line">        row,cols = len(matrix),len(matrix[0])</span><br><span class="line">        low,high = 0,row*cols - 1</span><br><span class="line">        </span><br><span class="line">        while low&lt;=high:</span><br><span class="line">            mid = (low+high)/2</span><br><span class="line">            num = matrix[mid/cols][mid%cols]</span><br><span class="line">            if num == target:</span><br><span class="line">                return True</span><br><span class="line">            elif num&lt;target:</span><br><span class="line">                low = mid+1</span><br><span class="line">            else:</span><br><span class="line">                high = mid-1</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+<h3 id="49-Group-Anagrams"><a href="#49-Group-Anagrams" class="headerlink" title="49.Group Anagrams"></a>49.Group Anagrams</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">hashmap = &#123;&#125;</span><br><span class="line">        for st in strs:</span><br><span class="line">            key = &apos;&apos;.join(sorted(st))</span><br><span class="line">            if key not in hashmap:</span><br><span class="line">                hashmap[key] = [st]</span><br><span class="line">            else:</span><br><span class="line">                hashmap[key] += [st]</span><br><span class="line">        return hashmap.values()</span><br></pre></td></tr></table></figure>
+<h3 id="219-Contains-Duplicate-II"><a href="#219-Contains-Duplicate-II" class="headerlink" title="219.Contains Duplicate II"></a>219.Contains Duplicate II</h3><p>之前写过1，还是比较简单的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;&#125;</span><br><span class="line">for i,v in enumerate(nums):</span><br><span class="line">    if v in dic and i - dic[v] &lt;= k:</span><br><span class="line">        return True</span><br><span class="line">    dic[v] = i</span><br><span class="line">return False</span><br></pre></td></tr></table></figure></p>
+<h3 id="227-Basic-Calculator-II"><a href="#227-Basic-Calculator-II" class="headerlink" title="227.Basic Calculator II"></a>227.Basic Calculator II</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">if not s:</span><br><span class="line">           return &quot;0&quot;</span><br><span class="line">       stack,num,sign = [],0,&quot;+&quot;</span><br><span class="line">       for i in xrange(len(s)):</span><br><span class="line">           if s[i].isdigit():</span><br><span class="line">               num = num*10 + ord(s[i]) - ord(&quot;0&quot;)</span><br><span class="line">           if(not s[i].isdigit() and not s[i].isspace()) or i == len(s) - 1:</span><br><span class="line">               if sign == &quot;-&quot;:</span><br><span class="line">                   stack.append(-num)</span><br><span class="line">               elif sign == &quot;+&quot;:</span><br><span class="line">                   stack.append(num)</span><br><span class="line">               elif sign == &quot;*&quot;:</span><br><span class="line">                   stack.append(stack.pop()*num)</span><br><span class="line">               else:</span><br><span class="line">                   tmp = stack.pop()</span><br><span class="line">                   if tmp//num &lt; 0 and tmp%num != 0:</span><br><span class="line">                        stack.append(tmp//num+1)</span><br><span class="line">                   else:</span><br><span class="line">                        stack.append(tmp//num)</span><br><span class="line">               sign = s[i]</span><br><span class="line">               num = 0</span><br><span class="line">       return sum(stack)</span><br></pre></td></tr></table></figure>
+<h3 id="921-Minimum-Add-to-Make-Parentheses-Valid"><a href="#921-Minimum-Add-to-Make-Parentheses-Valid" class="headerlink" title="921.Minimum Add to Make Parentheses Valid"></a>921.Minimum Add to Make Parentheses Valid</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i,j = 0,0</span><br><span class="line">        for s in S:</span><br><span class="line">            if s == &quot;(&quot;:</span><br><span class="line">                j += 1</span><br><span class="line">            else:</span><br><span class="line">                j -= 1</span><br><span class="line">                if j&lt;0:</span><br><span class="line">                    i += 1</span><br><span class="line">                    j += 1</span><br><span class="line">        return i + j</span><br></pre></td></tr></table></figure>
+<h3 id="229-Majority-Element-II"><a href="#229-Majority-Element-II" class="headerlink" title="229.Majority Element II"></a>229.Majority Element II</h3><p>摩尔投票法：该算法在其局部变量中维护一个序列元素和一个 计数器 ，计数器最初为零。然后，它一次一个地处理序列的元素。处理元素x时，如果计数器为零，则算法将x存储为其维护的序列元素，并将计数器设置为1。否则，它将x与存储的元素进行比较，并使计数器递增（如果相等）或递减计数器。这道题选出两个候选人就行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">if not nums: return []</span><br><span class="line">        can1 = 0</span><br><span class="line">        can2 = 1</span><br><span class="line">        c1 = c2 = 0</span><br><span class="line">        for num in nums:</span><br><span class="line">            if num == can1:</span><br><span class="line">                c1+=1</span><br><span class="line">            elif num == can2:</span><br><span class="line">                c2+=1</span><br><span class="line">            elif c1 == 0:</span><br><span class="line">                can1, c1 = num,1</span><br><span class="line">            elif c2 == 0:</span><br><span class="line">                can2, c2 = num, 1</span><br><span class="line">            else:</span><br><span class="line">                c1,c2 = c1-1,c2-1</span><br><span class="line">        </span><br><span class="line">        c1,c2 = 0,0</span><br><span class="line">        for num in nums:</span><br><span class="line">            if num == can1:</span><br><span class="line">                c1+=1</span><br><span class="line">            elif num==can2:</span><br><span class="line">                c2+=1</span><br><span class="line">        res, l = [], len(nums)</span><br><span class="line">        if (c1 &gt; l/3): res.append(can1)</span><br><span class="line">        if (c2 &gt; l/3): res.append(can2)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure></p>
+<h3 id="145-Binary-Tree-Postorder-Traversal"><a href="#145-Binary-Tree-Postorder-Traversal" class="headerlink" title="145.Binary Tree Postorder Traversal"></a>145.Binary Tree Postorder Traversal</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">res, stack = [],[root]</span><br><span class="line">        while stack:</span><br><span class="line">            node = stack.pop()</span><br><span class="line">            if node:</span><br><span class="line">                res.append(node.val)</span><br><span class="line">                stack.append(node.left)</span><br><span class="line">                stack.append(node.right)</span><br><span class="line">        return res[::-1]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/06/leetcode刷题记录(十三)/" rel="next" title="LeetCode刷题记录（十三）">
+                <i class="fa fa-chevron-left"></i> LeetCode刷题记录（十三）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="miko_zyz" />
+            
+              <p class="site-author-name" itemprop="name">miko_zyz</p>
+              <p class="site-description motion-element" itemprop="description">some where some day you will know why you are doing this</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#希望拿到offer！"><span class="nav-number">1.</span> <span class="nav-text">希望拿到offer！</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode刷题记录-十四"><span class="nav-number"></span> <span class="nav-text">leetcode刷题记录(十四)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#435-Non-overlapping-Intervals"><span class="nav-number">0.1.</span> <span class="nav-text">435.Non-overlapping Intervals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#443-String-Compression"><span class="nav-number">0.2.</span> <span class="nav-text">443.String Compression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#662-Maximum-Width-of-Binary-Tree"><span class="nav-number">0.3.</span> <span class="nav-text">662.Maximum Width of Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#455-Assign-Cookies"><span class="nav-number">0.4.</span> <span class="nav-text">455.Assign Cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#228-Summary-Ranges"><span class="nav-number">0.5.</span> <span class="nav-text">228.Summary Ranges</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#153-Find-Minimum-in-Rotated-Sorted-Array"><span class="nav-number">0.6.</span> <span class="nav-text">153.Find Minimum in Rotated Sorted Array</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#606-Construct-String-from-Binary-Tree"><span class="nav-number">0.7.</span> <span class="nav-text">606.Construct String from Binary Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#611-Valid-Triangle-Number"><span class="nav-number">0.8.</span> <span class="nav-text">611.Valid Triangle Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#74-Search-a-2D-Matrix"><span class="nav-number">0.9.</span> <span class="nav-text">74.Search a 2D Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#49-Group-Anagrams"><span class="nav-number">0.10.</span> <span class="nav-text">49.Group Anagrams</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#219-Contains-Duplicate-II"><span class="nav-number">0.11.</span> <span class="nav-text">219.Contains Duplicate II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#227-Basic-Calculator-II"><span class="nav-number">0.12.</span> <span class="nav-text">227.Basic Calculator II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#921-Minimum-Add-to-Make-Parentheses-Valid"><span class="nav-number">0.13.</span> <span class="nav-text">921.Minimum Add to Make Parentheses Valid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#229-Majority-Element-II"><span class="nav-number">0.14.</span> <span class="nav-text">229.Majority Element II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#145-Binary-Tree-Postorder-Traversal"><span class="nav-number">0.15.</span> <span class="nav-text">145.Binary Tree Postorder Traversal</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">miko_zyz</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
